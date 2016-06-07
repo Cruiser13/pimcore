@@ -49,7 +49,7 @@ abstract class Processor
     {
         $document = $this->getPrintDocument($documentId);
         if (Model\Tool\TmpStore::get($document->getLockKey())) {
-            throw new \Exception("Process with given document alredy running.");
+            throw new \Exception("A PDF generation process with given document is already running.");
         }
         Model\Tool\TmpStore::add($document->getLockKey(), true);
 
